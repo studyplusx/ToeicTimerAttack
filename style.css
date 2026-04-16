@@ -1,95 +1,147 @@
+:root {
+    /* テーマカラーの設定 */
+    --primary: #2563eb;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --secondary: #64748b;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+}
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f4f5f7;
-    color: #333;
+    /* フォントを Source Han Sans (Noto Sans JP) に指定 */
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    padding: 40px 20px;
     margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
     text-align: center;
 }
 
 h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
 }
 
 .time-display {
-    margin: 30px 0;
+    background: #f1f5f9;
+    padding: 25px 0;
+    border-radius: 16px;
+    margin-bottom: 30px;
 }
 
 .time-total {
-    font-size: 4rem;
-    font-family: monospace;
-    font-weight: bold;
-    line-height: 1.2;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-main);
+    /* 数字の横揺れを防ぐ（等幅表示） */
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
 }
 
 .time-part {
-    font-size: 2.2rem;
-    font-family: monospace;
-    color: #555;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
 }
 
 .label {
     font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 8px;
 }
 
 .part-label {
-    margin-top: 20px;
-    font-weight: bold;
-    color: #007bff;
+    margin-top: 25px;
+    color: var(--primary);
 }
 
 .controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
 }
 
 .btn {
-    flex: 1;
-    padding: 12px 0;
-    font-size: 1.1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 700;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
-    transition: opacity 0.2s;
+    transition: all 0.2s ease;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .btn:disabled {
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none !important;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .btn:active:not(:disabled) {
-    transform: scale(0.97);
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.btn-primary { background-color: #007bff; color: white; }
-.btn-danger { background-color: #dc3545; color: white; }
-.btn-warning { background-color: #ffc107; color: #333; }
-.btn-secondary { background-color: #6c757d; color: white; }
+/* ボタンカラー */
+.btn-primary { background-color: var(--primary); }
+.btn-danger { background-color: var(--danger); }
+.btn-warning { background-color: var(--warning); color: #fff; }
+.btn-secondary { background-color: var(--secondary); }
+
+/* 下部ボタン（LapとReset）を横並びに */
+#btn-lap, #btn-reset {
+    grid-column: span 1;
+}
+
+/* 上部ボタン（StartとStop）を横並びに */
+#btn-start, #btn-stop {
+    grid-column: span 1;
+}
 
 .laps-container {
     text-align: left;
-    margin-top: 30px;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 #lap-list {
@@ -99,17 +151,18 @@ h1 {
 }
 
 #lap-list li {
-    background: #f8f9fa;
-    margin-bottom: 10px;
-    padding: 12px;
-    border-radius: 6px;
+    background: #f8fafc;
+    margin-bottom: 8px;
+    padding: 14px 16px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.95rem;
+    border: 1px solid #e2e8f0;
 }
 
 /* ラップタイムの差分用クラス */
-.diff-minus { color: #28a745; font-weight: bold; } /* 緑: 余裕 */
-.diff-plus { color: #dc3545; font-weight: bold; }  /* 赤: 超過 */
-.diff-zero { color: #000000; font-weight: bold; }  /* 黒: ぴったり */
+.diff-minus { color: #10b981; font-weight: 700; font-variant-numeric: tabular-nums; } /* 緑: 余裕 */
+.diff-plus { color: #ef4444; font-weight: 700; font-variant-numeric: tabular-nums; }  /* 赤: 超過 */
+.diff-zero { color: var(--text-main); font-weight: 700; font-variant-numeric: tabular-nums; }  /* 黒: ぴったり */
