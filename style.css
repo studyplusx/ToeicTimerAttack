@@ -4,6 +4,7 @@
     --danger: #ef4444;
     --warning: #f59e0b;
     --secondary: #64748b;
+    --success: #10b981; /* 緑色 (余裕あり) */
     --bg-color: #f8fafc;
     --card-bg: #ffffff;
     --text-main: #1e293b;
@@ -21,6 +22,8 @@ body {
     margin: 0;
     min-height: 100vh;
     box-sizing: border-box;
+    /* モバイルでのズームを防ぐ */
+    touch-action: manipulation;
 }
 
 .container {
@@ -50,7 +53,7 @@ h1 {
 }
 
 .time-total {
-    font-size: 4.5rem;
+    font-size: 5rem; /* さら​​に大きく視認性を向上 */
     font-weight: 700;
     line-height: 1.1;
     color: var(--text-main);
@@ -60,14 +63,14 @@ h1 {
 }
 
 .time-part {
-    font-size: 2.5rem;
+    font-size: 2.8rem; /* 大きさを調整 */
     font-weight: 500;
     color: var(--text-muted);
     font-variant-numeric: tabular-nums;
 }
 
 .label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--text-muted);
     margin-bottom: 8px;
@@ -76,11 +79,12 @@ h1 {
 .part-label {
     margin-top: 25px;
     color: var(--primary);
+    font-weight: 700; /* Part名を強調 */
 }
 
 .controls {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2x2のグリッドに */
     gap: 12px;
     margin-bottom: 30px;
 }
@@ -99,7 +103,7 @@ h1 {
 }
 
 .btn:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
     box-shadow: none;
     transform: none !important;
@@ -121,16 +125,6 @@ h1 {
 .btn-warning { background-color: var(--warning); color: #fff; }
 .btn-secondary { background-color: var(--secondary); }
 
-/* 下部ボタン（LapとReset）を横並びに */
-#btn-lap, #btn-reset {
-    grid-column: span 1;
-}
-
-/* 上部ボタン（StartとStop）を横並びに */
-#btn-start, #btn-stop {
-    grid-column: span 1;
-}
-
 .laps-container {
     text-align: left;
     margin-top: 10px;
@@ -142,6 +136,7 @@ h3 {
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 8px;
     margin-bottom: 15px;
+    font-weight: 500;
 }
 
 #lap-list {
@@ -163,6 +158,6 @@ h3 {
 }
 
 /* ラップタイムの差分用クラス */
-.diff-minus { color: #10b981; font-weight: 700; font-variant-numeric: tabular-nums; } /* 緑: 余裕 */
-.diff-plus { color: #ef4444; font-weight: 700; font-variant-numeric: tabular-nums; }  /* 赤: 超過 */
+.diff-minus { color: var(--success); font-weight: 700; font-variant-numeric: tabular-nums; } /* 緑: 余裕 */
+.diff-plus { color: var(--danger); font-weight: 700; font-variant-numeric: tabular-nums; }  /* 赤: 超過 */
 .diff-zero { color: var(--text-main); font-weight: 700; font-variant-numeric: tabular-nums; }  /* 黒: ぴったり */
