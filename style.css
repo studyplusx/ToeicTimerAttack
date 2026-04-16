@@ -1,0 +1,115 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.time-display {
+    margin: 30px 0;
+}
+
+.time-total {
+    font-size: 4rem;
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.time-part {
+    font-size: 2.2rem;
+    font-family: monospace;
+    color: #555;
+}
+
+.label {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.part-label {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.btn-primary { background-color: #007bff; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+.btn-warning { background-color: #ffc107; color: #333; }
+.btn-secondary { background-color: #6c757d; color: white; }
+
+.laps-container {
+    text-align: left;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#lap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lap-list li {
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+/* ラップタイムの差分用クラス */
+.diff-minus { color: #28a745; font-weight: bold; } /* 緑: 余裕 */
+.diff-plus { color: #dc3545; font-weight: bold; }  /* 赤: 超過 */
+.diff-zero { color: #000000; font-weight: bold; }  /* 黒: ぴったり */

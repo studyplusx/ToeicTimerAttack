@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TOEIC Reading 900+ Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TOEIC Reading Timer</h1>
+        
+        <div class="time-display">
+            <div class="label">累計経過時間 (75分制限)</div>
+            <div id="total-time" class="time-total">00:00.00</div>
+            
+            <div id="current-part-label" class="label part-label">Part 5 経過時間</div>
+            <div id="part-time" class="time-part">00:00.00</div>
+        </div>
+
+        <div class="controls">
+            <button id="btn-start" class="btn btn-primary">Start</button>
+            <button id="btn-stop" class="btn btn-danger" disabled>Stop</button>
+            <button id="btn-lap" class="btn btn-warning" disabled>Lap</button>
+            <button id="btn-reset" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <div class="laps-container">
+            <h3>Lap History</h3>
+            <ul id="lap-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
