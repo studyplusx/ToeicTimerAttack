@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TOEIC Reading 900+ Timer</title>
+    <title>TOEIC Reading Timer - 900+ Pace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,13 +11,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>TOEIC Reading Timer</h1>
+        <header>
+            <h1>TOEIC Reading Timer</h1>
+        </header>
         
         <div class="time-display">
-            <div class="label">累計経過時間 (75分制限)</div>
+            <div class="label">Total Elapsed (75:00)</div>
             <div id="total-time" class="time-total">00:00.00</div>
             
-            <div id="current-part-label" class="label part-label">Part 5 経過時間</div>
+            <div id="current-part-label" class="label part-label">Next: Part 5</div>
             <div id="part-time" class="time-part">00:00.00</div>
         </div>
 
@@ -28,9 +30,29 @@
             <button id="btn-reset" class="btn btn-secondary">Reset</button>
         </div>
 
-        <div class="laps-container">
-            <h3>Lap History</h3>
-            <ul id="lap-list"></ul>
+        <div class="pacing-board">
+            <h3>Pacing Board</h3>
+            <div class="pace-row" id="row-0">
+                <div class="pace-info">
+                    <span class="part-name">Part 5</span>
+                    <span class="target-val">Target: 10:00</span>
+                </div>
+                <div class="pace-result" id="result-0">--:--.--</div>
+            </div>
+            <div class="pace-row" id="row-1">
+                <div class="pace-info">
+                    <span class="part-name">Part 6</span>
+                    <span class="target-val">Target: 10:00</span>
+                </div>
+                <div class="pace-result" id="result-1">--:--.--</div>
+            </div>
+            <div class="pace-row" id="row-2">
+                <div class="pace-info">
+                    <span class="part-name">Part 7</span>
+                    <span class="target-val">Target: 55:00</span>
+                </div>
+                <div class="pace-result" id="result-2">--:--.--</div>
+            </div>
         </div>
     </div>
 
